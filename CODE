@@ -1,0 +1,79 @@
+//Random complimentor
+
+//Benjamin Wutz
+//2021-7-30
+
+import java.util.*;
+public class RandomCompliment02 {
+    
+    public static void main(String[] args){
+        
+        System.out.println("Welcome to Random Complimentor");
+        
+        System.out.println();
+        
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("RANDOM SEED:");
+        
+        int seed = scanner.nextInt();
+        
+        System.out.println();
+        
+        Random random = new Random(seed);
+     
+        complimentor(scanner, seed, random);
+       
+        
+    } 
+    
+    public static void complimentor(Scanner scanner, int seed,Random random){
+        
+        System.out.println("How many compliments would you like to add?");
+        
+        int addCompliments = scanner.nextInt();
+        
+        scanner.nextLine();
+        
+        System.out.println();
+        
+        String[] compliments = new String[addCompliments];
+        
+        for (int i = 0; i < compliments.length; i++){
+            
+            System.out.println("Please enter a compliment:");
+            
+            compliments[i] = scanner.nextLine();
+            
+            System.out.println();
+        }
+        
+        System.out.println("The compliments have been loaded.");
+        
+        System.out.println();
+        
+        int numberOfCompliments = 1;
+        
+        while (numberOfCompliments > 0){
+            
+            System.out.println("How many compliments would you like? ('0' to quit)");
+        
+            numberOfCompliments = scanner.nextInt();
+        
+            System.out.println();
+            
+                for (int i = 1; i <= numberOfCompliments; i++){
+                    
+                    int randomCompliment = random.nextInt(addCompliments);
+                
+                    System.out.println(compliments[randomCompliment]);
+                    
+                    }
+                
+                System.out.println();
+                
+        }
+    
+    System.out.println("Have a great day!");
+    
+    }
